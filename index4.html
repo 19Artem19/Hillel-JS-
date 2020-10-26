@@ -1,0 +1,142 @@
+<html>
+
+<head>
+    <title>JAVASCRIPT HW3</title>
+</head>
+
+<body>
+    <script>
+        // ЗАДАНИЯ ДЛЯ РАЗМИНКИ!!!!!!)))
+
+        //1) Написать функцию которая принимает строку и подстроку и нужно найти количество вхождений!!!
+        function searchSubstr(string, substring) {
+            let numbers = 0;
+            let newString = string;
+
+            //console.log('start: numbers: ', numbers);
+            //console.log('start: newString: ', newString);
+            //console.log('start: substring: ', substring);
+
+            while (newString.indexOf(substring) !== -1) {
+                //console.log('**********************');
+                //console.log('**********************');
+
+                numbers += 1;
+
+                let index = newString.indexOf(substring);
+                //console.log('index', index);
+
+                //console.log('need to remove', newString.slice(0, index));
+                newString = newString.slice(index + substring.length);
+                //console.log('newString', newString);
+                //console.log('numbers', numbers);
+                //console.log('**********************');
+                //console.log('**********************');
+            }
+
+            console.log('resultat', numbers);
+
+            return numbers;
+        }
+        console.log(searchSubstr('4526214531235345123', '123')); // результат 2
+        //console.log(searchSubstr('4526214531235345123', '45')); // результат 3
+
+
+        // 2) Написать функцию которая принимает массив и ищет макс число, дальше найти мин число которое имеет меньше индекс чем макс.
+        // Можно индекс оф использовать.
+        function findMinBeforeMax(a) {
+            let maxValue = a[0];
+
+            for (let i = 0; i < a.length; i++) {
+                if (maxValue < a[i]) {
+                    maxValue = a[i];
+                }
+            }
+
+            const maxValueIndex = a.indexOf(maxValue);
+            a = a.slice(0, maxValueIndex);
+
+            let minValue = a[0];
+
+            for (let i = 0; i < a.length; i++) {
+                if (minValue > a[i]) {
+                    minValue = a[i];
+                }
+            }
+
+            console.log('max: ', maxValue, 'min: ', minValue);
+        }
+        findMinBeforeMax([35, 5, 2, 324, 2, 0, -1, 35]); // ответ 324 -макс, 2 - мин ибо индекс меньше
+
+        //3) Есть массив с массивов нужно подсчитать сумму елементов которые лежат
+        // на главной диагонеле c помощью одного цикла и двух. то есть 1 + 5 + 9. 
+        // Подсчитать произведение побочной диагонали  3*5*7 также.
+        const matrix = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]
+        ];
+        let a = 0;
+        let b = 1;
+        for (let currentArrayIndex = 0; currentArrayIndex < matrix.length; currentArrayIndex++) {
+            const currentArray = matrix[currentArrayIndex];
+            for (let currentArrayValueIndex = 0; currentArrayValueIndex < currentArray.length; currentArrayValueIndex++) {
+                const currentNumberValue = currentArray[currentArrayValueIndex];
+
+                console.log('****************');
+                console.log('****************');
+                console.log('currentArrayIndex', currentArrayIndex);
+                console.log('currentArray', currentArray);
+                console.log('currentArrayValueIndex', currentArrayValueIndex);
+                console.log('currentNumberValue', currentNumberValue);
+
+                if (currentArrayIndex === 0 && currentArrayValueIndex === 0) {
+                    a += currentNumberValue;
+                }
+
+                if (currentArrayIndex === 1 && currentArrayValueIndex === 1) {
+                    a += currentNumberValue;
+                }
+
+                if (currentArrayIndex === 2 && currentArrayValueIndex === 2) {
+                    a += currentNumberValue;
+                }
+
+                ///////////
+
+                if (currentArrayIndex === 0 && currentArrayValueIndex === 2) {
+                    b *= currentNumberValue;
+                }
+
+                if (currentArrayIndex === 1 && currentArrayValueIndex === 1) {
+                    b *= currentNumberValue;
+                }
+
+                if (currentArrayIndex === 2 && currentArrayValueIndex === 0) {
+                    b *= currentNumberValue;
+                }
+            }
+        }
+
+        console.log(a, b);
+
+
+        // 4) Есть массив. Написать функцию которая подсчитает произведение всеx елементов и вернет результат
+        const array = [2, 3, 5, 6, 2, 6];
+        function multipleOfFive(array) {
+            let sum = 1;
+            for (let i = 0; i < array.length; i++) {
+                sum *= array[i];
+            }
+            console.log(sum);
+        }
+        multipleOfFive(array)
+
+
+        // Advanced
+        //  Есть бусы, каждая из бусинок это рандом из тру или фолс и количество бусинок не известно нужно подсчитать количество бусинок.
+        // Алгоритм расписать.
+    </script>
+</body>
+
+</html>

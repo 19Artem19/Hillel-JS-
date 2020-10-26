@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>JAVASCRIPT</title>
+</head>
+<body>
+    <script>
+        // - это один из вариантов как комментировать что-то 
+        // то есть строки где присутствуют два слэша интерпретатор пропускает
+        const first = 10 && 9 && false && 5 && 6;
+        Результат будет false, так как && ищет первый false и дальше не выполняет действия
+        //  
+        //
+        const second = 9 || false || 5 || 6 || 0;
+        Результат будет 9, так как || ищет первый true
+        //  
+        //
+        const third = false && 9 || false && 5 && 6;
+        Результат будет false, так как false||false==false
+        //  
+        //
+        const fourth = 10 && 9 || 3 || 5 && 6;
+        Результат будет 9, так как && ищет первое true и берет крайнюю 
+
+        //  
+        //
+        const fifth = 1 || 5 && 6 && 4 && 1 && 343;
+        Результат будет 1, так как 1==true, а || ищет первую true
+        //  
+        //
+        const sixth = 17 > 43 && true && '' || 1;
+        Результат будет 1, так как первое выражение false, а || ищет первое true
+        //  
+        //
+        const seventh = 1 && true && 34 > 17 || 1;
+        Результат будет true, так как true||true== true
+        //  
+        //
+        const eighth = '' || 0 || 3 && 4 && 9 && 89;
+        Результат будет 89, так как false||false|| true, берет крайнее значение, крайнее значение от && 89
+        //  
+        //
+        console.log(first, second, third, fourth, fifth, sixth, seventh, eighth);
+    </script>
+</body>
+</html>

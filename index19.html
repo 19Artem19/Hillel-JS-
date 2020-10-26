@@ -1,0 +1,95 @@
+<html>
+
+<head>
+    <title>JAVASCRIPT</title>
+</head>
+
+<body>
+    <script>
+        // ЗАДАНИЯ ДЛЯ РАЗМИНКИ!!!!!!)))
+
+        //1) Есть две функции конструктор! Нужно c помощью prototype сделать second родителем first!
+        function A(name) {
+            this.name = name;
+        }
+        function B(lastName) {
+            this.lastName = lastName;
+        }
+        const first = new A('Sergei');
+        const second = new B('Shakhov');
+        A.prototype = second;
+
+        console.log(first)
+
+        //2) Есть обьекты. Необходимо сделать vasia родителем для petia, а petia для boria.
+        // ТО есть вася отец все отцов 
+        const vasia = { m: 23 };
+        const petia = { n: 2 };
+        const boria = { q: 2 };
+
+        boria.__proto__ = petia;
+        petia.__proto__ = vasia;
+
+        console.log(boria)
+
+        console.log(petia)
+
+
+        //3) Написать класс Product, который принимает три поля цена, название, количество.
+        // Необходимо реализовать два метода, первый сравнивает два продукта и выводит строку
+        // в которой присутствует разница по цене и количеству. 
+        // Второй метод принимает любое количество продуктов и возвращает общую цену.
+
+        class Product {
+            constructor(price, name, quantity) {
+                this.price = price;
+                this.name = name;
+                this.quantity = quantity;
+            }
+        }
+
+        let arr = [];
+
+        let object1 = new Product(3000, 'Iphone', 15);
+        arr.push(object1);
+
+        let object2 = new Product(2000, 'Samsung', 10);
+        arr.push(object2);
+
+        let object3 = new Product(1000, 'Xiaomi', 5);
+        arr.push(object3);
+
+        function first(a, b) {
+            let resultPrice = Math.abs(a.price - b.price);
+            let resultQuantity = Math.abs(a.quantity - b.quantity);
+
+            return 'price:' + resultPrice + ', quantity:' + resultQuantity;
+        }
+
+        console.log(first(object1, object2))
+
+        function second(array) {
+            var sum = 0;
+            for (var i = 0; i < array.length; i++) {
+                sum += array[i].price;
+            }
+            return sum;
+        }
+
+        console.log(second(arr))
+
+        // 4) Необходимо написать класс, который принимает следующие поля
+        // name, lastName, age, quantity, salary, position, далее реализовываем методы на получение всех свойств.
+        // , пишем геттер, сеттер и что-там еще). 
+
+
+        // но если вы дочитали до этого момента то 4-е реализововать не нужно), а нужно сделать следующее.
+        //  встать со стула!....... делаем легенькую разминочку, и начинаем приседать ибо дз проверяться не будет). 20 раз достаточно). 
+        // и после этого скидываем мне дз.
+
+
+
+    </script>
+</body>
+
+</html>

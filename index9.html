@@ -1,0 +1,153 @@
+<html>
+
+<head>
+    <title>JAVASCRIPT HW3</title>
+</head>
+
+<body>
+    <script>
+        // ЗАДАНИЯ ДЛЯ РАЗМИНКИ!!!!!!)))
+
+        //1) Есть обьект car! пробежаться по обьекту через for in и подсчитать количество свойств в обьекте, 
+        const car = {
+            model: 'BMW',
+            price: 45000,
+            year: 2019,
+            country: 'Germany'
+        };
+        //  --------------------------------------------------------
+        let result = 0;
+        for (const key in car) {
+            result++;
+        }
+        console.log('Всего свойств - ' + '' + result);
+
+
+        // 2) Есть функция getClaims которая прнимает массив из обьектов claims! Фунция должна вернуть массив только из тех
+        // которые  имеют status Closed
+        claims = [
+            {
+                id: 1234,
+                model: 'MC7',
+                status: 'Open'
+            },
+            {
+                id: 3453,
+                model: 'MC7',
+                status: 'Open'
+            },
+            {
+                id: 6343,
+                model: 'Gran Tour',
+                status: 'Closed'
+            },
+            {
+                id: 7644,
+                status: 'In Progress'
+            },
+            {
+                id: 7686,
+                model: 'City Bike',
+                status: 'Closed'
+            },
+            {
+                id: 8356,
+                model: 'Bike',
+                status: 'Closed'
+            },
+            {
+                id: 9745,
+                model: 'Bicycle',
+                status: 'Closed'
+            },
+            {
+                id: 10253,
+                model: 'Bicycle',
+                status: 'Closed'
+            },
+            {
+                id: 14234,
+                model: 'Bike',
+                status: 'Closed'
+            }];
+
+        function getClaims(arr) {
+            return arr.filter(el => el.status === 'Closed');
+        }
+        console.log(getClaims(claims));
+
+        //3) Дан массив arr! Необходимо найти самое большое по модулю!!! Решить минимум 2-мя способами!! Один из  них с помощью find!!
+        const arr = [5, 6, 23, 64, -23, -92, 23, 3]
+        //1--------------------------------------------------------------------
+        arr.reduce((prev, curr) => {
+            if (Math.abs(prev) < Math.abs(curr)) return curr;
+            return prev;
+        }, 0)
+        //2--------------------------------------------------------------------
+        function maxValue(arr) {
+            let max = arr[0];
+            arr.forEach((el) => {
+                if (Math.abs(el) > Math.abs(max)) max = el;
+            });
+            return max;
+        }
+
+        // 4) Используя claims переменную выше!! добавить свойство isClosed: true если status - Closed
+        claims.forEach((el) => {
+            if (el.status === 'Closed') {
+                el.isClosed = true;
+            };
+            return el;
+        });
+
+        // 5)  Есть массив arr1 отсортировать этот вложенный массив [5, 1, 7,3 ,4, 6]
+        const arr1 = [[5, 2, 5, 1, [5, 1, 7, 3, 4, 6]], 6, 23, 64, -23, -92, 23, 3]
+        arr1[0][4].sort((a, b) => a - b);
+
+        // 6)  Есть массив arr2 разложить положительные в один массив а отрицательные в другой!!
+        const arr2 = [5, 2, 5, -1, 6, -3, 64, -23, -92, 23, 3];
+        let arrMaxValue = arr2.filter((el, index) => {
+            if (el > 0) return el;
+        });
+        // ---------------------------------------------------------------------------
+        let arrMinValue = arr2.filter((el, index) => {
+            if (el < 0) return el;
+        });
+        //7 Написать функцию которая принимает только поле array обьекта person и сортирует по убыванию по id и возвращает массив!!
+        const person = {
+            name: 'Vasia',
+            gender: 'male',
+            array: [{ id: 1, name: 'Vasia' },
+            { id: 6, name: 'Boria' },
+            { id: 2, name: 'Petia' },
+            { id: 3, name: 'Misha' }]
+        };
+
+        function getPerson({ array }) {
+            return array.sort((a, b) => b.id - a.id);
+        }
+        console.log(getPerson(person))
+
+        //8 Написать функцию которая принимает массив arr3! И если среднее арифметическое всех меньше самого большого числа в массиве вернуть тру иначе фолс!!!
+        const arr3 = [5, 2, 5, -1, 6, 3, 64, 23, -92, 23, 3];
+        function getArithmeticMean(arr3) {
+            if ((arr3.reduce((a, b) => (a + b)) / arr3.length) < Math.max(...arr3)) return true;
+            return false;
+        }
+
+        //9 Есть обьект claim вернуть конкатенация modelName, subject!
+        // Может так и нельзя было делать, но стрелочку в функции я убрал )) Это ты специально сделал или так и нжно было оставить?
+        const claim = {
+            id: 542354,
+            subject: 'Bike',
+            modelName: 'Mc7',
+            modelId: 3213,
+            getModelNameAndSubject: function () {
+                // вернуть modelName, subject
+                return this.modelName + ' ' + this.subject;
+            }
+        };
+    </script>
+</body>
+
+</html>

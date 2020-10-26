@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <script>
+        // 1.удалить из строки повторяющиеся символы
+        var first = '1234156117181119999';
+        function duplicate(first) {
+            var result = '';
+            for (var i = 0; i < first.length; i++) {
+                if (result.indexOf(first[i]) == -1)
+                    result += first[i];
+            }
+            return result;
+        }
+        duplicate(first)
+        // 2.количество слов в строке
+        var second = 'Hi, i am learning javascript';
+        second = second.split(' ').length;
+        // 3.самое длинное слово в строке
+        var third = 'Hi, i am learning javascript';
+        function findLongestWord(str) {
+            var longestWord = str.split(' ');
+            longestWord.sort((a, b) => {
+                return b.length - a.length;
+            });
+            return longestWord[0];
+        }
+        console.log(findLongestWord(third));
+
+        // 4.удалить пробелы в строке
+        var fourth = 'Hi, i am learning javascript';
+        fourth = fourth.split(' ');
+        console.log(fourth)
+        var withoutFood = fourth.join('');
+        console.log(withoutFood);
+
+        // 5.заменить пробелы на зяпятые
+        var fifth = 'Hi, i am learning javascript';
+        fifth = fifth.split(' ');
+        console.log(fifth);
+        var withСommas = fifth.join(',');
+        console.log(withСommas);
+        // 6.Отфильтровать массив таким образом чтобы числа были не меньше 20 используя фильтр!
+        var sixth = [3, 42, 234, 5, 3, 21, 53];
+        sixth = sixth.filter((el, index) => {
+            if (el > 20) return el;
+        });
+        // 7.Вернуть новый массив из строк добавив слово месяц если к элементу если число больше 20 используя map [3, '42 месяца', '23 месяца', 5, 3, '21 месяца', '53 месяца']
+        var seventh = [3, 42, 23, 5, 3, 21, 53];
+        seventh = seventh.map((el, index) => {
+            if (el > 20) return el + 'месяца';
+            return el;
+        });
+
+        // 8.используя reduce просуммировать элементы которые больше 3
+        var eight = [3, 42, 23, 5, 3, 21, 53];
+        eight = eight.reduce((prev, curr) => {
+            if (curr > 3) return prev + curr;
+            return prev;
+        }, 0);
+        // 9.Используя редьюс в массиве nine найти 21
+        var nine = [3, 42, 23, 5, 3, 21, 53];
+        nine = nine.reduce((prev, curr) => {
+            if (curr === 21) prev = curr;
+            return prev;
+        }, 0);
+        //10.Используя редьюса определить все ли элементы больше 5 если да то вернуть тру иначе фолс
+        var ten = [5, 42, 23, 5, 31, 21, 53];
+        ten = ten.reduce((prev, curr) => {
+            if (curr > 5 && prev) return prev;
+            return false;
+        }, 0);
+
+        // 11.Ипользуя map перемножить все нечетные елементы на 2, а четные так и оставить
+        var eleven = [12, 42, 23, 65, 352, 21, 2];
+        eleven = eleven.map((el, index) => {
+            if (el % 2 !== 0) return el * 2;
+            return el;
+        });
+        
+
+
+    </script>
+</body>
+
+</html>
